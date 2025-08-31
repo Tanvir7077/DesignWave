@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YourBrand — Design • Web • Marketing</title>
+  <!-- ====== Google Font (free) ====== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /*
+    =============================
+    YOUR ONE-PAGE AGENCY WEBSITE
+    =============================
+    - 100% free to host on GitHub Pages / Netlify.
+    - Edit the placeholders below (brand, services, pricing, portfolio).
+    - No build tools or external CSS frameworks required.
+
+    ========== QUICK THEME TWEAKS ==========
+    1) Brand Name:       Replace all 'YourBrand'
+    2) Accent Color:     Change --accent
+    3) Dark/Light:       Set --bg, --text, --muted to your taste
+    */
+
+    :root{
+      --bg: #0b0e13;          /* page background */
+      --card: #121723;        /* card background */
+      --text: #e7ecf2;        /* main text color */
+      --muted: #9aa7b2;       /* muted text */
+      --accent: #5b8eff;      /* brand accent color */
+      --accent-2: #22d3ee;    /* secondary accent (optional) */
+      --radius: 18px;         /* card/button roundness */
+      --shadow: 0 10px 25px rgba(0,0,0,.35);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    .container{width:min(1100px,92%);margin-inline:auto}
+    .grid{display:grid;gap:24px}
+    .btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));
+         color:#0b0e13;padding:14px 18px;border-radius:var(--radius);font-weight:700;border:none;cursor:pointer;box-shadow:var(--shadow)}
+    .btn.ghost{background:transparent;color:var(--text);outline:1px solid rgba(255,255,255,.15)}
+    .badge{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-2);}
+
+    /* ====== Header / Hero ====== */
+    header{position:sticky;top:0;backdrop-filter:saturate(150%) blur(8px);background:rgba(11,14,19,.6);z-index:50;border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:800}
+    .logo svg{width:28px;height:28px}
+
+    .hero{padding:72px 0 48px;background:radial-gradient(1200px 600px at 70% -10%,rgba(91,142,255,.25),transparent 60%),
+                                  radial-gradient(800px 500px at 0% 10%,rgba(34,211,238,.18),transparent 40%)}
+    .hero .title{font-size:clamp(28px,4.2vw,54px);line-height:1.1;font-weight:800;margin:12px 0}
+    .hero p{color:var(--muted);max-width:760px}
+    .cta{margin-top:22px;display:flex;gap:14px;flex-wrap:wrap}
+
+    /* ====== Sections ====== */
+    section{padding:54px 0}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+    .section-title{font-size:clamp(22px,2.6vw,34px);margin:0 0 8px;font-weight:800}
+    .muted{color:var(--muted)}
+
+    /* ====== Services ====== */
+    .services{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+    .service h3{margin:6px 0 8px}
+    .service p{color:var(--muted)}
+
+    /* ====== Portfolio ====== */
+    .portfolio{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .folio{position:relative;overflow:hidden;border-radius:14px;border:1px solid rgba(255,255,255,.08);background:#0e1420}
+    .folio .thumb{aspect-ratio:16/10;display:grid;place-items:center;color:#7f8ea3;font-weight:700}
+    .folio .meta{padding:14px}
+    .chip{display:inline-block;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:6px 10px;font-size:12px;margin-right:6px}
+
+    /* ====== Pricing ====== */
+    .pricing{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .plan{position:relative}
+    .plan .price{font-size:34px;font-weight:800;margin:8px 0}
+    .plan ul{padding-left:18px;margin:12px 0 0}
+    .plan li{margin:6px 0}
+    .plan .btn{width:100%;justify-content:center;margin-top:12px}
+
+    /* ====== Contact ====== */
+    .contact .row{display:grid;grid-template-columns:1.2fr .8fr;gap:24px}
+    @media (max-width:860px){.contact .row{grid-template-columns:1fr}}
+
+    .footer{padding:32px 0;color:var(--muted);border-top:1px dashed rgba(255,255,255,.1)}
+
+    /* Pretty list checkmarks */
+    .checklist{list-style:none;padding:0;margin:0}
+    .checklist li{margin:8px 0;display:flex;gap:10px;align-items:flex-start}
+    .checklist svg{flex:0 0 auto;margin-top:4px}
+  </style>
+</head>
+<body>
+  <!-- ====== NAVBAR ====== -->
+  <header>
+    <div class="container nav">
+      <a class="logo" href="#home" aria-label="Go to top">
+        <!-- Simple free logomark (edit fill to match your accent) -->
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M12 3l8.66 5v8L12 21 3.34 16V8L12 3Z" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M12 7l4.33 2.5v5L12 17l-4.33-2.5v-5L12 7Z" fill="currentColor"/>
+        </svg>
+        <span>YourBrand</span>
+      </a>
+      <nav style="display:flex;gap:18px;align-items:center">
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact" class="btn" style="padding:10px 14px">Get Quote</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ====== HERO ====== -->
+  <main id="home" class="hero">
+    <div class="container">
+      <span class="badge">Design • Web • Marketing</span>
+      <h1 class="title">I help small businesses look sharp, sell more and grow online.</h1>
+      <p>
+        <!-- EDIT: Hero description -->
+        Hi, I'm <strong>Your Name</strong> — a graphic designer, WordPress web designer and digital marketer. I build clean brands, modern websites and campaigns that convert. Available for projects & monthly retainers.
+      </p>
+      <div class="cta">
+        <a class="btn" href="#contact">Get a Free Quote</a>
+        <a class="btn ghost" href="#work" aria-label="See recent work">See My Work</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- ====== SERVICES ====== -->
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title">Services</h2>
+      <p class="muted">Pick a single service or combine them into a growth package.</p>
+      <div class="grid services" style="margin-top:18px">
+        <div class="card service">
+          <h3>Logo & Brand Identity</h3>
+          <ul class="checklist">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
+              Primary logo + social avatar
+            </li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>Color palette & fonts</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>Brand guide (PDF)</li>
+          </ul>
+        </div>
+        <div class="card service">
+          <h3>WordPress Websites</h3>
+          <ul class="checklist">
+            <li><svg width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>Responsive, fast & SEO‑friendly</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>E‑commerce or brochure sites</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>1:1 handover & training</li>
+          </ul>
+        </div>
+        <div class="card service">
+          <h3>Digital Marketing</h3>
+          <ul class="checklist">
+            <li><svg width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>Social media content & ads</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>Lead funnels & landing pages</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>Monthly reports & recommendations</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== WORK / PORTFOLIO ====== -->
+  <section id="work">
+    <div class="container">
+      <h2 class="section-title">Selected Work</h2>
+      <p class="muted">Replace these with real projects or polished mock case studies.</p>
+      <div class="grid portfolio" style="margin-top:18px">
+        <!-- CARD 1 -->
+        <article class="folio">
+          <div class="thumb">1200×750 — Project Image</div>
+          <div class="meta">
+            <strong>Brand Refresh — Café Aurora</strong>
+            <div style="margin-top:6px"><span class="chip">Logo</span><span class="chip">Branding</span></div>
+          </div>
+        </article>
+        <!-- CARD 2 -->
+        <article class="folio">
+          <div class="thumb">1200×750 — Project Image</div>
+          <div class="meta">
+            <strong>E‑commerce — Trendy Threads</strong>
+            <div style="margin-top:6px"><span class="chip">Web</span><span class="chip">Shop</span></div>
+          </div>
+        </article>
+        <!-- CARD 3 -->
+        <article class="folio">
+          <div class="thumb">1200×750 — Project Image</div>
+          <div class="meta">
+            <strong>Lead Funnel — Local Gym</strong>
+            <div style="margin-top:6px"><span class="chip">Marketing</span><span class="chip">Ads</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== PRICING ====== -->
+  <section id="pricing">
+    <div class="container">
+      <h2 class="section-title">Simple Pricing</h2>
+      <p class="muted">Start lean. Increase rates as demand grows.</p>
+      <div class="grid pricing" style="margin-top:18px">
+        <div class="card plan">
+          <div class="badge">Starter</div>
+          <div class="price">$199</div>
+          <ul>
+            <li>Logo + mini brand kit</li>
+            <li>1‑page website (landing)</li>
+            <li>WhatsApp & email support</li>
+          </ul>
+          <a class="btn" href="#contact">Choose Starter</a>
+        </div>
+        <div class="card plan" style="outline:2px solid var(--accent)">
+          <div class="badge">Business</div>
+          <div class="price">$499</div>
+          <ul>
+            <li>5‑page WordPress site</li>
+            <li>Brand kit + social templates</li>
+            <li>Basic on‑page SEO</li>
+          </ul>
+          <a class="btn" href="#contact">Choose Business</a>
+        </div>
+        <div class="card plan">
+          <div class="badge">Growth (Monthly)</div>
+          <div class="price">$299/mo</div>
+          <ul>
+            <li>12 posts + 4 ads / month</li>
+            <li>Landing page & analytics</li>
+            <li>Monthly report & call</li>
+          </ul>
+          <a class="btn" href="#contact">Choose Growth</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== CONTACT ====== -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2 class="section-title">Get a Free Quote</h2>
+      <p class="muted">Prefer WhatsApp? Click the button — you'll get a reply within 24 hours.</p>
+      <div class="row" style="margin-top:18px">
+        <form class="card" name="contact" onsubmit="event.preventDefault(); window.location.href='mailto:hello@yourbrand.com?subject=Project%20Inquiry%20from%20Website';">
+          <!-- EDIT: Replace the mailto with your email OR link a Google Form -->
+          <label>Full name</label>
+          <input required placeholder="Your name" style="width:100%;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,.15);background:#0f1420;color:#e7ecf2;margin:6px 0 10px"/>
+          <label>Email</label>
+          <input type="email" required placeholder="you@example.com" style="width:100%;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,.15);background:#0f1420;color:#e7ecf2;margin:6px 0 10px"/>
+          <label>What do you need?</label>
+          <textarea required rows="4" placeholder="Logo/website/marketing details" style="width:100%;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,.15);background:#0f1420;color:#e7ecf2;margin:6px 0 10px"></textarea>
+          <button class="btn" type="submit">Email Me</button>
+        </form>
+        <aside class="card">
+          <h3>Other ways to reach me</h3>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin:12px 0">
+            <!-- EDIT: Replace with your real links -->
+            <a class="btn" href="https://wa.me/8801XXXXXXXXX" target="_blank" rel="noreferrer">WhatsApp</a>
+            <a class="btn ghost" href="https://www.facebook.com/YourPage" target="_blank" rel="noreferrer">Facebook</a>
+            <a class="btn ghost" href="mailto:hello@yourbrand.com">Email</a>
+            <a class="btn ghost" href="https://www.behance.net/yourprofile" target="_blank" rel="noreferrer">Behance</a>
+          </div>
+          <p class="muted">Tip: you can swap this box with a Google Form/Tally link if you prefer forms.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
+      <small>© <span id="y"></span> YourBrand. All rights reserved.</small>
+      <small>Built with ♥ — hosted free on GitHub Pages.</small>
+    </div>
+  </footer>
+
+  <script>
+    // tiny helper just for the year in footer
+    document.getElementById('y').textContent = new Date().getFullYear()
+  </script>
+</body>
+</html>
